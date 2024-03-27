@@ -57,8 +57,8 @@ module.exports = {
         // Manage only self-record.
         let filter = {}
         if (!req.user.isAdmin) {
-            // const data = await User.findOne({ _id: req.params.id, userId: req.user.id })
-            filter = { userId: req.user.id }
+            // const data = await User.findOne({ _id: req.params.id, _id: req.user._id })
+            filter = { _id: req.user._id }
         }
 
         const data = await User.findOne({ _id: req.params.id, ...filter })
@@ -78,7 +78,7 @@ module.exports = {
         // Manage only self-record.
         let filter = {}
         if (!req.user.isAdmin) {
-            filter = { userId: req.user.id }
+            filter = { _id: req.user._id }
         }
 
         const data = await User.updateOne({ _id: req.params.id, ...filter }, req.body, { runValidators: true })
