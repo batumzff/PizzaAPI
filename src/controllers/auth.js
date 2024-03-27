@@ -71,7 +71,7 @@ module.exports = {
                         },
                     }
 
-                    // jwt.sign(data, secret_key, { expiresIn: '30m' })
+                    // jwt.sign(access_data, access_key, { expiresIn: '30m' })
                     const accessToken = jwt.sign(accessInfo.data, accessInfo.key, { expiresIn: accessInfo.time })
                     const refreshToken = jwt.sign(refreshInfo.data, refreshInfo.key, { expiresIn: refreshInfo.time })
 
