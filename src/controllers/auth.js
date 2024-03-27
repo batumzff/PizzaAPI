@@ -129,7 +129,7 @@ module.exports = {
                     res.status(200).send({
                         error: false,
                         bearer: {
-                            access: jwt.sign(user, process.env.ACCESS_KEY, { expiresIn: '30m' })
+                            access: jwt.sign(user.toJSON(), process.env.ACCESS_KEY, { expiresIn: '30m' })
                         }
                     })
 
